@@ -16,7 +16,7 @@ module Locomotive
         end
 
       elsif source.respond_to?(:url) # carrierwave uploader
-        if source.file.respond_to?(:url)
+        if source.respond_to?(:url)
           file = self.app.fetch_url(source.url) # amazon s3, cloud files, ...etc
         else
           file = self.app.fetch_file(source.path)
